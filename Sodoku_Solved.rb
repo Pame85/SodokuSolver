@@ -14,7 +14,14 @@ end
 
 def print_grid(grid)
   grid.each do |row|
-    puts row.join(" ")
+    colored_row = row.map do |num|
+      if num == 0
+        num.to_s.colorize(:red)
+      else
+        num.to_s
+      end
+    end
+    puts colored_row.join(" ")
   end
 end
 
