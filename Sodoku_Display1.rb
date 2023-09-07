@@ -33,19 +33,33 @@ end
 #     p row
 # end
 
-puts "\nFill the 1st row with num (1..9) while skip non-zero value:\n\n"
+# puts "\nFill the 1st row with num (1..9) while skip non-zero value:\n\n"
 # The 'cell' here are block variables for Ruby block.
 # It's represents the current element or item in the array.
 # The .to_a shows here called on this range
-grid[0].each_with_index do |cell,index|
-    if cell == 0
-    unused_numbers = (1..9).to_a - grid[0]
-    grid[0][index] = unused_numbers.first
+# grid[0].each_with_index do |cell,index|
+#     if cell == 0
+#     unused_numbers = (1..9).to_a - grid[0]
+#     grid[0][index] = unused_numbers.first
+#     end
+# end
+
+# # Print the updated grid
+# grid.each do |row|
+#     p row
+# end
+
+    grid.each_with_index do |row, row_index|
+        row.each_with_index do |num, col_index|
+            if num == 0
+                grid[row_index][col_index]= rand(1..9)
+            end
+        end
+        
     end
-end
 
-# Print the updated grid
-grid.each do |row|
-    p row
-end
+    puts "\n"
 
+    grid.each do |row|
+        p row
+    end
